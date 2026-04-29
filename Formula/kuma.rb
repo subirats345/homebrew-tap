@@ -4,6 +4,7 @@ class Kuma < Formula
   url "https://github.com/subirats345/kuma/archive/refs/tags/v0.1.0.tar.gz"
   sha256 "d86679e5cb2aee257893d32ca096e39d85245aa844f26044eb4f85773efde15f"
   license "MIT"
+  depends_on :macos
   depends_on macos: :sonoma
 
   def install

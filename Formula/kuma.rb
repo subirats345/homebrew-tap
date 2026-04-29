@@ -3,8 +3,8 @@ require "base64"
 class Kuma < Formula
   desc "Tiny native Markdown-to-PDF renderer for macOS"
   homepage "https://github.com/subirats345/kuma"
-  url "https://github.com/subirats345/kuma/archive/refs/tags/v0.8.0.tar.gz"
-  sha256 "0a032eaf66eb496d9cbb024fedd0639d96f3f33911a4ff6e29bdd4ff12114da2"
+  url "https://github.com/subirats345/kuma/archive/refs/tags/v0.9.0.tar.gz"
+  sha256 "c90766e6153ca39a3db459bb92ccb415a215a667fa0bb7eebb14519c086e8a55"
   license "MIT"
   depends_on :macos
   depends_on macos: :sonoma
@@ -25,8 +25,18 @@ class Kuma < Formula
 
       ## Notes
 
+      Kuma supports **bold**, *italic*, `inline code`, [links](https://example.com), and ~~strikethrough~~.
+
       - Native PDF output
-      - Small Markdown input
+      - [x] Small Markdown input
+      - [ ] Tables and lists
+
+      1. Parse Markdown
+      2. Render PDF
+
+      | Feature | Status |
+      | --- | --- |
+      | Tables | Done |
 
       ```text
       height = lines * line_height
@@ -38,7 +48,7 @@ class Kuma < Formula
     BASE64
     (testpath/"sample.png").binwrite(Base64.decode64(sample_png))
 
-    assert_match "Kuma 0.8.0", shell_output("#{bin}/kuma --version")
+    assert_match "Kuma 0.9.0", shell_output("#{bin}/kuma --version")
     system bin/"kuma", "init", "starter.md"
     assert_path_exists testpath/"starter.md"
     system bin/"kuma", "starter.md", "starter.pdf"

@@ -3,8 +3,8 @@ require "base64"
 class Kuma < Formula
   desc "Tiny native Markdown-to-PDF renderer for macOS"
   homepage "https://github.com/subirats345/kuma"
-  url "https://github.com/subirats345/kuma/archive/refs/tags/v0.10.1.tar.gz"
-  sha256 "fbeb68cbc4db02a7d53685b2651cc58343534717de86dbd1560bd1aaa4326976"
+  url "https://github.com/subirats345/kuma/archive/refs/tags/v0.10.2.tar.gz"
+  sha256 "6e2e5cb3bef0ea4561230ebc4fb7b5db1776adbbf456ea5dade4e1e6112723c5"
   license "MIT"
   depends_on :macos
   depends_on macos: :sonoma
@@ -48,7 +48,7 @@ class Kuma < Formula
     BASE64
     (testpath/"sample.png").binwrite(Base64.decode64(sample_png))
 
-    assert_match "Kuma 0.10.1", shell_output("#{bin}/kuma --version")
+    assert_match "Kuma 0.10.2", shell_output("#{bin}/kuma --version")
     system bin/"kuma", "init", "starter.md"
     assert_path_exists testpath/"starter.md"
     system bin/"kuma", "starter.md", "starter.pdf"
